@@ -59,7 +59,7 @@ var functions = {
             }
         })
     },
-    getinfo: function (req, res) {
+    getstatus: function (req, res) {
         if (req.headers.auths && req.headers.auths.split(' ')[0] === 'Header') {
             var token = req.headers.auths.split(' ')[1]
             var decodedtoken = jwt.decode(token, config.secret)
