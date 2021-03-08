@@ -65,7 +65,7 @@ var functions = {
             var decodedtoken = jwt.decode(token, config.secret)
             return res.json({
                 success: true,
-                msg: 'Logged In As: ' + decodedtoken.name
+                msg: 'green'
             })
         } else{
             return res.json({
