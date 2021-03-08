@@ -17,8 +17,8 @@ router.post('/addnew', actions.addNewUser)
 //user auhentication
 router.post('/auth', actions.authentication)
 
-//get info on a user
-router.post('/getinfo', actions.getinfo)
+//get health status on a user
+router.post('/getstatus', actions.getstatus)
 
 
 module.exports = router
