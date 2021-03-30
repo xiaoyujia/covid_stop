@@ -1,6 +1,7 @@
 var User = require('../models/user')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
+const { token } = require('morgan')
 
 var functions = {
     addNewUser: function (req, res) {
@@ -73,7 +74,52 @@ var functions = {
                 msg: 'No Header'
             })
         }
+    },
+
+    locationUpdate: function (req, res) {
+        //GeoJSON
+        var GeoSchema = newSchema ({
+            type: {
+                type: String,
+                default: "Point"
+            },
+            coordinates: {
+                type: [Number],
+                index: "2dsphere"
+            }
+        })
+
+        if ((req.body.latitude == null) && (req.body.longitude == null)) {
+            return res.json({
+                success: false,
+                msg: 'Location Update Error'
+            })
+        }else{
+            var lat = req.body.latitude,
+            var lon = req.body.longitude,
+
+            var newLocation = Location({
+                token = this.token,
+                geometry = GeoSchema(
+                    coordinates = [lat, lon]
+                )
+
+            });
+            newLocation.save(function(err, newLocation) {
+                if (err) {
+                    res.json({
+                        success: false,
+                        msg: 'Failed to save'
+                    })
+                } else {
+                    res.json({
+                        success: true,
+                        msg: 'Successfully saved'
+                    })
+                }
+            })
+        }
     }
 }
 
-module.exports = functions
+module.exports = functionss
