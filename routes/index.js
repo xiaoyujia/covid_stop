@@ -21,7 +21,7 @@ router.post('/auth', actions.authentication)
 router.post('/getstatus', actions.getstatus)
 
 //user location update
-router.post('/locationupdate', actions.locationUpdate)
+//router.post('/locationupdate', actions.locationUpdate)
 
 
 module.exports = router

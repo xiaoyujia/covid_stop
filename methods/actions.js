@@ -75,7 +75,7 @@ var functions = {
             })
         }
     },
-
+/*
     locationUpdate: function (req, res) {
         //GeoJSON
         var GeoSchema = newSchema ({
@@ -95,16 +95,13 @@ var functions = {
                 msg: 'Location Update Error'
             })
         }else{
-            var lat = req.body.latitude,
-            var lon = req.body.longitude,
-
             var newLocation = Location({
-                token = this.token,
-                geometry = GeoSchema(
-                    coordinates = [lat, lon]
+                token,
+                GeoSchema(
+                    coordinates = [req.body.latitude, req.body.longitude]
                 )
 
-            });
+            })
             newLocation.save(function(err, newLocation) {
                 if (err) {
                     res.json({
@@ -119,7 +116,7 @@ var functions = {
                 }
             })
         }
-    }
+    }*/
 }
 
-module.exports = functionss
+module.exports = functions
