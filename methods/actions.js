@@ -68,7 +68,7 @@ var functions = {
             
             return res.json({
                 success: true,
-                msg: status
+                msg: Location.findOne({token: encrypttoken}).status
             })
         } else {
             return res.json({
