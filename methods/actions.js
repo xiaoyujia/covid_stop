@@ -62,8 +62,8 @@ var functions = {
         })
     },
     getstatus: function (req, res) {
-        var decodedtoken = jwt.decode(token, config.secret),
-        if (req.body.token == decodedtoken) {
+        var decodedtoken = jwt.decode(token, config.secret)
+        if(req.body.token == decodedtoken) {
             
             return res.json({
                 success: true,
