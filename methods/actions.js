@@ -64,11 +64,11 @@ var functions = {
     getstatus: function (req, res) {
         var encrypttoken = jwt.encode(req.body.token, config.secret)
         if(req.body.token != null) {
-            var status = Location.findOne({token: encrypttoken}).status
+            var status = Location.findOne({token: encrypttoken})
             
             return res.json({
                 success: true,
-                msg: Location.findOne({token: encrypttoken}).status
+                msg: status
             })
         } else {
             return res.json({
