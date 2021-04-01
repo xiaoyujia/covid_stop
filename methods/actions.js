@@ -88,7 +88,8 @@ var functions = {
                 token: req.body.token,
                 latitude: req.body.latitude,
                 longitude: req.body.longitude,
-                time: req.body.time
+                time: req.body.time,
+                status: req.body.status
             });
             newLocation.save(function(err, newUser) {
                 if (err) {
