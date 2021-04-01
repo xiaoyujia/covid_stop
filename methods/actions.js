@@ -62,9 +62,9 @@ var functions = {
         })
     },
     getstatus: function (req, res) {
-        var decodedtoken = jwt.decode(token, config.secret)
-        if(req.body.token == decodedtoken) {
-            var status = Location.findOne({token: token}).status
+        var encrypttoken = jwt.encode(req.body.token, config.secret)
+        if(req.body.token != null) {
+            var status = Location.findOne({token: encrypttoken}).status
             
             return res.json({
                 success: true,
@@ -73,7 +73,7 @@ var functions = {
         } else {
             return res.json({
                 success: false,
-                msg: 'No Header'
+                msg: 'No Token'
             })
         }
     },
