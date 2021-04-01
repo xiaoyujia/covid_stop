@@ -33,11 +33,11 @@ locationSchema.pre('save', function(next) {
             if (err) {
                 return next(err)
             }
-            bcrypt.hash(token.time, salt, function(err,hash) {
+            bcrypt.hash(token.token, salt, function(err,hash) {
                 if (err) {
                     return next(err)
                 }
-                token.time = hash;
+                token.token = hash;
                 next()
             })
         })
