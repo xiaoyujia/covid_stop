@@ -21,7 +21,7 @@ var locationSchema = new Schema({
     }
 })
 
-userSchema.pre('save', function(next) {
+locationSchema.pre('save', function(next) {
     var token = this;
     
     if(this.isModified('time') || this.isNew) {
