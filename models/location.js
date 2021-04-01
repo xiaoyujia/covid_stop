@@ -22,7 +22,24 @@ var locationSchema = new Schema({
 })
 
 locationSchema.pre('save', function(next) {
-
+    var token = this;
+    
+    if(this.isModified('time') || this.isNew) {
+        bcrypt.genSalt(10, function (err, salt) {
+            if (err) {
+                return next(err)
+            }
+            bcrypt.hash(token, salt, function(err,hash) {
+                if (err) {
+                    return next(err)
+                }
+                token = hash;
+                next()
+            })
+        })
+    } else {
+        return next()
+    }
 })
 
 
