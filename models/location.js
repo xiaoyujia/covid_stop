@@ -6,7 +6,7 @@ var locationSchema = new Schema({
     token: {
         type: String,
         require: true
-    },/*
+    },
     latitude: {
         type: String,
         required: true
@@ -14,7 +14,7 @@ var locationSchema = new Schema({
     longitude: {
         type: String,
         required: true
-    },*/
+    },
     time: {
         type: String,
         required: true
