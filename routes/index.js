@@ -7,11 +7,6 @@ router.get('/', (req, res) => {
 })
 
 //add new user
-
-//router.post('/addnew', function(req, res){
- //   actions.addNewUser
-//});
-
 router.post('/addnew', actions.addNewUser)
 
 //user auhentication
