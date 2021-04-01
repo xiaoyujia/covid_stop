@@ -77,7 +77,7 @@ var functions = {
     },
 
     locationUpdate: function (req, res) {
-        if((!req.body.token) || (!req.body.latitude) || (!req.body.longitude) || (!req.body.time)) {
+        if((!req.body.token) || (!req.body.time)) {
             res.json({
                 success: false,
                 msg: 'Please fill all fields'
