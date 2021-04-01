@@ -13,7 +13,7 @@ router.post('/addnew', actions.addNewUser)
 router.post('/auth', actions.authentication)
 
 //get health status on a user
-router.post('/getstatus', actions.getstatus)
+router.get('/getstatus', actions.getstatus)
 
 //user location update
 router.post('/locationupdate', actions.locationUpdate)

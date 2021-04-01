@@ -64,10 +64,11 @@ var functions = {
     getstatus: function (req, res) {
         var decodedtoken = jwt.decode(token, config.secret)
         if(req.body.token == decodedtoken) {
+            var status = Location.findOne({token: token}).status
             
             return res.json({
                 success: true,
-                msg: token.status
+                msg: status
             })
         } else {
             return res.json({
