@@ -1,4 +1,5 @@
 var User = require('../models/user')
+var Location = require('../models/location')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
 const { token } = require('morgan')
