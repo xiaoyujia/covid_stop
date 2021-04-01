@@ -80,8 +80,8 @@ var functions = {
         if (req.body.token != null) {
             var newLocation = User({
                 token: req.body.token,
-                latitude: req.body.latitude,
-                longitude: req.body.longitude,
+                //latitude: req.body.latitude,
+                //longitude: req.body.longitude,
                 time: req.body.time
             });
             newLocation.save(function(err, newLocation) {
