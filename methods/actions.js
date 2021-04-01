@@ -90,7 +90,7 @@ var functions = {
                 longitude: req.body.longitude,
                 time: req.body.time
             });
-            newUser.save(function(err, newUser) {
+            newLocation.save(function(err, newUser) {
                 if (err) {
                     res.json({
                         success: false,
