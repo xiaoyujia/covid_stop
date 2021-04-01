@@ -21,6 +21,10 @@ var locationSchema = new Schema({
     }
 })
 
+userSchema.pre('save', function(next) {
+    return next()
+})
+
 
 
 module.exports = mongoose.model('Location', locationSchema)
