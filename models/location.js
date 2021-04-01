@@ -18,6 +18,10 @@ var locationSchema = new Schema({
     time: {
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+        required: true
     }
 })
 
