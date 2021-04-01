@@ -75,33 +75,15 @@ var functions = {
             })
         }
     },
-/*
+
     locationUpdate: function (req, res) {
-        //GeoJSON
-        var GeoSchema = newSchema ({
-            type: {
-                type: String,
-                default: "Point"
-            },
-            coordinates: {
-                type: [Number],
-                index: "2dsphere"
-            }
-        })
-
-        if ((req.body.latitude == null) && (req.body.longitude == null)) {
-            return res.json({
-                success: false,
-                msg: 'Location Update Error'
-            })
-        }else{
-            var newLocation = Location({
-                token,
-                GeoSchema(
-                    coordinates = [req.body.latitude, req.body.longitude]
-                )
-
-            })
+        if (req.body.token != null) {
+            var newLocation = User({
+                token: req.body.token,
+                latitude: req.body.latitude,
+                longitude: req.body.longitude,
+                time: req.body.time
+            });
             newLocation.save(function(err, newLocation) {
                 if (err) {
                     res.json({
@@ -115,8 +97,13 @@ var functions = {
                     })
                 }
             })
+        } else {
+            return res.json({
+                success: false,
+                msg: 'No Token'
+            })
         }
-    }*/
+    }
 }
 
 module.exports = functions
