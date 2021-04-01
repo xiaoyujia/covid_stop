@@ -7,14 +7,14 @@ var locationSchema = new Schema({
         type: String,
         require: true
     },
-    /*latitude: {
+    latitude: {
         type: String,
         required: true
     },
     longitude: {
         type: String,
         required: true
-    },*/
+    },
     time: {
         type: String,
         required: true

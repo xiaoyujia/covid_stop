@@ -77,14 +77,19 @@ var functions = {
     },
 
     locationUpdate: function (req, res) {
-        if (req.body.token != null) {
-            var newLocation = User({
+        if((!req.body.token) || (!req.body.latitude) || (!req.body.longitude) || (!req.body.time)) {
+            res.json({
+                success: false,
+                msg: 'Please fill all fields'
+            })
+        } else {
+            var newLocation = Location({
                 token: req.body.token,
-                //latitude: req.body.latitude,
-                //longitude: req.body.longitude,
+                latitude: req.body.latitude,
+                longitude: req.body.longitude,
                 time: req.body.time
             });
-            newLocation.save(function(err, newLocation) {
+            newUser.save(function(err, newUser) {
                 if (err) {
                     res.json({
                         success: false,
@@ -96,11 +101,6 @@ var functions = {
                         msg: 'Successfully saved'
                     })
                 }
-            })
-        } else {
-            return res.json({
-                success: false,
-                msg: 'No Token'
             })
         }
     }
