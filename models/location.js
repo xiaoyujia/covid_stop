@@ -29,6 +29,30 @@ locationSchema.pre('save', function(next) {
             if (err) {
                 return next(err)
             }
+            bcrypt.hash(token.latitude, salt, function(err,hash) {
+                if (err) {
+                    return next(err)
+                }
+                token.latitude = hash;
+                next()
+            })
+        }),
+        bcrypt.genSalt(10, function (err, salt) {
+            if (err) {
+                return next(err)
+            }
+            bcrypt.hash(token.longitude, salt, function(err,hash) {
+                if (err) {
+                    return next(err)
+                }
+                token.longitude = hash;
+                next()
+            })
+        }),
+        bcrypt.genSalt(10, function (err, salt) {
+            if (err) {
+                return next(err)
+            }
             bcrypt.hash(token.time, salt, function(err,hash) {
                 if (err) {
                     return next(err)
