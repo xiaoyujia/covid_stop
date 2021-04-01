@@ -62,14 +62,14 @@ var functions = {
         })
     },
     getstatus: function (req, res) {
-        if (req.headers.auths && req.headers.auths.split(' ')[0] === 'Header') {
-            var token = req.headers.auths.split(' ')[1]
-            var decodedtoken = jwt.decode(token, config.secret)
+        var decodedtoken = jwt.decode(token, config.secret),
+        if (req.body.token == decodedtoken) {
+            
             return res.json({
                 success: true,
-                msg: 'green'
+                msg: token.status
             })
-        } else{
+        } else {
             return res.json({
                 success: false,
                 msg: 'No Header'
