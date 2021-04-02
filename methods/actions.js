@@ -35,6 +35,7 @@ var functions = {
         User.findOne({
             name: req.body.name
         },
+        //fgfg
         function (err, user) {
             if (err) throw err
             if (!user) {
