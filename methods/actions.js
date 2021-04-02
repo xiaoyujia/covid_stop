@@ -62,16 +62,14 @@ var functions = {
         })
     },
     getstatus: function (req, res) {
-        var encrypttoken = jwt.encode(req.body.token, config.secret)
+        //var encrypttoken = jwt.encode(req.body.token, config.secret)
         if(req.body.token != null) {
-            Location.findOne({token: encrypttoken}).then((result) => {
+            Location.findOne({token: req.body.token}).then((result) => {
                 res.send(result.status)
+
+            }).catch((err) => {
+                console.log(err);
             })
-            
-            /*return res.json({
-                success: true,
-                msg: status
-            })*/
         } else {
             return res.json({
                 success: false,
