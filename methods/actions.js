@@ -162,16 +162,17 @@ var functions = {
                 search: 'token=' + statustoken,
             };
             var statusUrl = url.format(urlObject);
-            console.log(statusUrl);
+            //console.log(statusUrl);
+            res.send(statusUrl)
 
-            QRCode.toDataURL(statusUrl, function (err, url) {
+            /*QRCode.toDataURL(statusUrl, function (err, url) {
                 if (err) {
                     res.send("Get Status Error")
                 } else {
                     //console.log(url)
                     res.send(url)
                 }
-            })
+            })*/
 
 
         }
