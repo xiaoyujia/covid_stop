@@ -11,7 +11,7 @@ var QRCode = require('qrcode')
 var url = require('url')
 const { time } = require('console')
 
-var thestatus = 'yellow'
+var thestatus = 'green'
 
 
 
@@ -40,7 +40,8 @@ var functions = {
                     })
                 }
             })
-        }
+        };
+        thestatus = 'green'
     },
     authentication: function (req, res) {
         User.findOne({
@@ -91,7 +92,7 @@ var functions = {
     },
 
     locationUpdate: function (req, res) {
-        if((!req.body.token) || (!req.body.latitude) || (!req.body.longitude) || (!req.body.year) || (!req.body.month) || (!req.body.day) || (!req.body.hour) || (!req.body.minute) || (!req.body.second) || (!req.body.status) || (!req.body.secret)) {
+        if((!req.body.token) || (!req.body.latitude) || (!req.body.longitude) || (!req.body.time) || (!req.body.status)) {
         //if((!req.body.token) || (!req.body.latitude) || (!req.body.longitude) || (!req.body.time) || (!req.body.status) || (!req.body.secret)) {
             res.json({
                 success: false,
@@ -105,15 +106,15 @@ var functions = {
                 token: req.body.token,
                 latitude: req.body.latitude,
                 longitude: req.body.longitude,
-                year: req.body.year,
-                month: req.body.month,
-                day: req.body.day,
-                hour: req.body.hour,
-                minute: req.body.minute,
-                second: req.body.second,
-                //time: req.body.time,
+                //year: req.body.year,
+                //month: req.body.month,
+                //day: req.body.day,
+                //hour: req.body.hour,
+                //minute: req.body.minute,
+                //second: req.body.second,
+                time: req.body.time,
                 status: req.body.status,
-                secret: req.body.secret
+                //secret: req.body.secret
             });
             newLocation.save(function(err, newLocation) {
                 if (err) {

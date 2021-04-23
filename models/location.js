@@ -14,7 +14,7 @@ var locationSchema = new Schema({
     longitude: {
         type: Number,
         required: true
-    },
+    },/*
     year: {
         type: String,
         required: true
@@ -38,16 +38,12 @@ var locationSchema = new Schema({
     second: {
         type: String,
         required: true
-    },/*
+    },*/
     time: {
         type: String,
         required: true
-    },*/
-    status: {
-        type: String,
-        required: true
     },
-    secret: {
+    status: {
         type: String,
         required: true
     }
@@ -56,7 +52,7 @@ var locationSchema = new Schema({
 locationSchema.pre('save', function(next) {
     var location = this;
     
-    if(this.isModified('year') || this.isModified('month') || this.isModified('day') || this.isModified('hour') || this.isModified('minute') || this.isModified('second') || this.isNew) {
+    if(this.isModified('time') || this.isNew) {
     //if(this.isModified('time') || this.isNew) {
 
         bcrypt.genSalt(10, function (err, salt) {
