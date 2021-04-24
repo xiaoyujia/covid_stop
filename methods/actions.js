@@ -114,7 +114,7 @@ var functions = {
                 //second: req.body.second,
                 time: req.body.time,
                 status: req.body.status,
-                //secret: req.body.secret
+                secret: 'secret'
             });
             newLocation.save(function(err, newLocation) {
                 if (err) {

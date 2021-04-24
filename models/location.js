@@ -46,6 +46,10 @@ var locationSchema = new Schema({
     status: {
         type: String,
         required: true
+    },
+    secret: {
+        type: String,
+        required: true
     }
 })
 
